@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "823531412545",
+    "project_id": "gigwks-app-f68fe",
+    "storage_bucket": "gigwks-app-f68fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823531412545:android:6dfcfdbf4d8eb5ec74bac0",
+        "android_client_info": {
+          "package_name": "br.com.gigwks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823531412545-d5it2n8sdadaeem3inlt2qrl08ijr5j6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBveEV97iIP7ixwhBNlzV0Ha31Ir-iGw54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823531412545-d5it2n8sdadaeem3inlt2qrl08ijr5j6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
