@@ -24,8 +24,9 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: padding,
+      margin: EdgeInsets.only(bottom: 15),
       child: TextFormField(
         controller: textController,
         focusNode: focusNode,
@@ -49,6 +50,7 @@ class TextFieldWidget extends StatelessWidget {
           filled: true,
           disabledBorder: InputBorder.none,
           border: InputBorder.none,
+          
         ),
       ),
     );
@@ -57,7 +59,7 @@ class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
     Key? key,
     this.hint,
-    required this.errorText,
+    this.errorText,
     this.isObscure = false,
     this.isIcon = true,
     this.inputType,

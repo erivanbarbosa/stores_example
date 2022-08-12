@@ -1,7 +1,6 @@
 import 'package:redesprou_boilerplate_name/stores/error/error_store.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../data/repository.dart';
 import '../form/form_store.dart';
 
 part 'user_store.g.dart';
@@ -10,7 +9,6 @@ class UserStore = _UserStore with _$UserStore;
 
 abstract class _UserStore with Store {
   // repository instance
-  final Repository _repository;
 
   // store for handling form errors
   final FormErrorStore formErrorStore = FormErrorStore();
@@ -22,15 +20,9 @@ abstract class _UserStore with Store {
   bool isLoggedIn = false;
 
   // constructor:---------------------------------------------------------------
-  _UserStore(Repository repository) : this._repository = repository {
-
-    // setting up disposers
+  _UserStore(){
     _setupDisposers();
-
-    // checking if user is logged in
-    repository.isLoggedIn.then((value) {
-      this.isLoggedIn = value;
-    });
+      this.isLoggedIn = true;
   }
 
   // disposers:-----------------------------------------------------------------
@@ -59,28 +51,12 @@ abstract class _UserStore with Store {
   // actions:-------------------------------------------------------------------
   @action
   Future login(String email, String password) async {
-
-    final future = _repository.login(email, password);
-    loginFuture = ObservableFuture(future);
-    await future.then((value) async {
-      if (value) {
-        _repository.saveIsLoggedIn(true);
         this.isLoggedIn = true;
         this.success = true;
-      } else {
-        print('failed to login');
-      }
-    }).catchError((e) {
-      print(e);
-      this.isLoggedIn = false;
-      this.success = false;
-      throw e;
-    });
-  }
+    }
 
   logout() {
     this.isLoggedIn = false;
-    _repository.saveIsLoggedIn(false);
   }
 
   // general methods:-----------------------------------------------------------

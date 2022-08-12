@@ -23,6 +23,7 @@ class DefaultAppScreen extends StatelessWidget {
       appBar: _buildAppBar(),
       body: _buildBody(),
       backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
     );
   }
 

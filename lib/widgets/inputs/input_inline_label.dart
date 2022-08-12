@@ -9,7 +9,7 @@ class InputInlineLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 15),
+      margin: EdgeInsets.only(bottom: 15),
       width: width,
       child: Text(label),
     );

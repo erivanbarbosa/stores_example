@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:get/get.dart';
-
 import 'package:redesprou_boilerplate_name/constants/colors.dart';
 import 'package:redesprou_boilerplate_name/models/media.dart';
-import 'package:redesprou_boilerplate_name/stores/service/service_store.dart';
 
 class ImageGallery extends StatefulWidget {
   //final List<String>? imageUrls;
@@ -23,12 +20,10 @@ class ImageGallery extends StatefulWidget {
 }
 
 class _ImageGalleryState extends State<ImageGallery> {
-  late ServiceStore _serviceStore;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _serviceStore = Get.find();
   }
 
   @override
@@ -62,7 +57,6 @@ class _ImageGalleryState extends State<ImageGallery> {
         color: AppColors.purple[500]!,
         icon: Icons.delete,
         onTap: () async {
-          await _serviceStore.deleteImage(media.id!);
           widget.medias!.remove(media);
           setState(() {});
         },

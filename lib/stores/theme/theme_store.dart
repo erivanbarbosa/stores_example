@@ -1,4 +1,3 @@
-import 'package:redesprou_boilerplate_name/data/repository.dart';
 import 'package:redesprou_boilerplate_name/stores/error/error_store.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
@@ -11,7 +10,6 @@ abstract class _ThemeStore with Store {
   final String TAG = "_ThemeStore";
 
   // repository instance
-  final Repository _repository;
 
   // store for handling errors
   final ErrorStore errorStore = ErrorStore();
@@ -25,8 +23,7 @@ abstract class _ThemeStore with Store {
   bool get darkMode => _darkMode;
 
   // constructor:---------------------------------------------------------------
-  _ThemeStore(Repository repository)
-      : this._repository = repository {
+  _ThemeStore() {
     init();
   }
 
@@ -34,12 +31,11 @@ abstract class _ThemeStore with Store {
   @action
   Future changeBrightnessToDark(bool value) async {
     _darkMode = value;
-    await _repository.changeBrightnessToDark(value);
   }
 
   // general methods:-----------------------------------------------------------
   Future init() async {
-    _darkMode = _repository.isDarkMode;
+    _darkMode = false;
   }
 
   bool isPlatformDark(BuildContext context) =>

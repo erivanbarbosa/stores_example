@@ -5,7 +5,7 @@ class MainButton extends StatelessWidget {
   final Color buttonColor;
   final Color textColor;
   final Color? borderColor;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const MainButton({
     Key? key,

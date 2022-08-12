@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:redesprou_boilerplate_name/constants/colors.dart';
-import 'package:redesprou_boilerplate_name/utils/navigation_utils.dart';
-import 'package:redesprou_boilerplate_name/utils/routes/routes.dart';
 import 'package:badges/badges.dart';
 
 class AlternativeAppBar extends StatelessWidget {
@@ -28,9 +26,6 @@ class AlternativeAppBar extends StatelessWidget {
 
   GestureDetector _buildNotificationBell(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        pushNamed(context, Routes.notifications);
-      },
       child: Padding(
         padding: const EdgeInsets.only(left: 15, top: 6, bottom: 6, right: 25),
         child: Container(

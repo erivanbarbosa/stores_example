@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:redesprou_boilerplate_name/data/sharedpref/constants/preferences.dart';
-import 'package:redesprou_boilerplate_name/utils/navigation_utils.dart';
-import 'package:redesprou_boilerplate_name/utils/routes/routes.dart';
-import 'package:redesprou_boilerplate_name/utils/translate_utils.dart';
 import 'package:redesprou_boilerplate_name/widgets/layout/alternative_appbar.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AlternativeAppScreen extends StatelessWidget {
   Widget screenBody;
   final bool showNotifications;
   final int badgeCount;
+  final FloatingActionButton floatingActionButton;
 
-  AlternativeAppScreen({Key? key, required this.screenBody, this.showNotifications = false, this.badgeCount = 0}) : super(key: key);
+  AlternativeAppScreen({Key? key, required this.screenBody, this.showNotifications = false, this.badgeCount = 0, required this.floatingActionButton}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
-      body: _buildBody(),
-      drawer: _buildDrawer(context),
-    );
+        appBar: _buildAppBar(),
+        body: _buildBody(),
+        drawer: _buildDrawer(context),
+        floatingActionButton: this.floatingActionButton);
   }
 
   PreferredSize _buildAppBar() {
@@ -48,37 +44,11 @@ class AlternativeAppScreen extends StatelessWidget {
               color: Theme.of(context).primaryColor,
             ),
             child: Text(
-              'Gigwks',
+              'Teste',
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           ),
-          ListTile(
-            title: Text(translate(context, "Perfil de Usuário")),
-            onTap: () {
-              pushNamed(context, Routes.profilePresentation);
-            },
-          ),
-          ListTile(
-            title: Text(translate(context, "Adicionar Novo Serviço")),
-            onTap: () {
-              pushNamed(context, Routes.servicePresentation);
-            },
-          ),
-          ListTile(
-            title: Text(translate(context, "Serviços")),
-            onTap: () {
-              pushNamed(context, Routes.serviceList);
-            },
-          ),
-          IconButton(
-            onPressed: () {
-              SharedPreferences.getInstance().then((preference) {
-                preference.setBool(Preferences.is_logged_in, false);
-                Navigator.of(context).pushReplacementNamed(Routes.login);
-              });
-            },
-            icon: Icon(Icons.power_settings_new),
-          )
+          ListTile(title: Text("")),
         ],
       ),
     );

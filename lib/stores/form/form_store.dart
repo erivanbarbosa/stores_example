@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:redesprou_boilerplate_name/data/network/apis/login/login_api.dart';
 import 'package:redesprou_boilerplate_name/stores/error/error_store.dart';
 import 'package:mobx/mobx.dart';
 import 'package:validators/validators.dart';
@@ -113,7 +112,7 @@ abstract class _FormStore with Store {
   Future login() async {
     loading = true;
     final getIt = GetIt.instance;
-    bool result = await getIt<LoginApi>().login(userEmail, password);
+    bool result = true;
 
     Future.delayed(Duration(milliseconds: 2000)).then((future) {
       loading = false;
