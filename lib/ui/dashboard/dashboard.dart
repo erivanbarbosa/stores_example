@@ -26,7 +26,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
           showNotifications: true,
           floatingActionButton: FloatingActionButton(
           onPressed: () => {Navigator.of(context).pushNamed(Routes.new_contact)},
-          tooltip: 'Increment',
           child: Icon(Icons.add),
         ),
           screenBody: Stack(
@@ -47,10 +46,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Container _buildQuoteArea() {
     return Container(
-      color: Colors.white,
       margin: EdgeInsets.only(top: 50, left: 25, right: 25),
       child: Text(
-        "\"Taps: 0\"",
+        "Meus Contatos",
         style: TextStyle(
           color: Theme.of(context).primaryColor,
           fontSize: 24,
@@ -63,7 +61,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Expanded _buildAdvertasingArea() {
     return Expanded(
         child: Container(
-      color: Colors.white,
       height: 120,
       margin: EdgeInsets.only(top: 80, left: 25, right: 25, bottom: 25),
       child: Center(),

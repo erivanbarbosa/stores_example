@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:redesprou_boilerplate_name/constants/app_theme.dart';
 import 'package:redesprou_boilerplate_name/constants/strings.dart';
+import 'package:redesprou_boilerplate_name/di/components/service_locator.dart';
 import 'package:redesprou_boilerplate_name/ui/dashboard/dashboard.dart';
 import 'package:redesprou_boilerplate_name/utils/routes/routes.dart';
 import 'package:redesprou_boilerplate_name/stores/theme/theme_store.dart';
@@ -12,6 +13,8 @@ import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   final ThemeStore _themeStore = ThemeStore();
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: Strings.appName,
-            theme: _themeStore.darkMode ? themeDataDark : themeData,
+            theme: getIt<ThemeStore>().darkMode ? orangeTheme : purpleTheme,
             routes: Routes.routes,
             localizationsDelegates: [
               AppLocalizations.delegate,

@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:redesprou_boilerplate_name/constants/colors.dart';
 import 'package:badges/badges.dart';
+import 'package:redesprou_boilerplate_name/di/components/service_locator.dart';
+import 'package:redesprou_boilerplate_name/stores/theme/theme_store.dart';
 
 class AlternativeAppBar extends StatelessWidget {
   final bool showNotifications;
   final int badgeCount;
-  const AlternativeAppBar({Key? key, this.showNotifications = false, this.badgeCount = 0}) : super(key: key);
+
+  AlternativeAppBar({Key? key, this.showNotifications = false, this.badgeCount = 0}) : super(key: key);
+
+  
 
   @override
-  AppBar build(BuildContext context) {
+  Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
       elevation: 0,
@@ -26,6 +32,7 @@ class AlternativeAppBar extends StatelessWidget {
 
   GestureDetector _buildNotificationBell(BuildContext context) {
     return GestureDetector(
+      onTap: () => getIt<ThemeStore>().changeBrightnessToDark(!getIt<ThemeStore>().darkMode),
       child: Padding(
         padding: const EdgeInsets.only(left: 15, top: 6, bottom: 6, right: 25),
         child: Container(

@@ -25,7 +25,7 @@ import 'package:redesprou_boilerplate_name/constants/font_family.dart';
 
 import 'package:flutter/material.dart';
 
-final ThemeData themeData = new ThemeData(
+final ThemeData purpleTheme = new ThemeData(
     fontFamily: FontFamily.productSans,
     brightness: Brightness.light,
     primarySwatch: MaterialColor(AppColors.purple[500]!.value, AppColors.purple),
@@ -35,7 +35,7 @@ final ThemeData themeData = new ThemeData(
     accentColorBrightness: Brightness.light,
     scaffoldBackgroundColor: Colors.white);
 
-final ThemeData themeDataDark = ThemeData(
+final ThemeData orangeTheme = ThemeData(
   fontFamily: FontFamily.productSans,
   brightness: Brightness.dark,
   primaryColor: AppColors.orange[500],

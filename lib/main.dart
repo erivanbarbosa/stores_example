@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:get_it/get_it.dart';
 import 'package:redesprou_boilerplate_name/stores/contact/contact_store.dart';
+import 'package:redesprou_boilerplate_name/stores/theme/theme_store.dart';
 import 'package:redesprou_boilerplate_name/ui/my_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -29,6 +30,7 @@ Future<void> main() async {
 _initStores() {
   final getIt = GetIt.instance;
   getIt.registerSingleton<ContactStore>(ContactStore());
+  getIt.registerSingleton<ThemeStore>(ThemeStore());
 }
 
 Future<void> setPreferredOrientations() {
