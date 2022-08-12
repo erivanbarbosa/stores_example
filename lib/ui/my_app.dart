@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:redesprou_boilerplate_name/constants/app_theme.dart';
 import 'package:redesprou_boilerplate_name/constants/strings.dart';
 import 'package:redesprou_boilerplate_name/di/components/service_locator.dart';
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
       child: Observer(
         name: 'global-observer',
         builder: (context) {
-          return GetMaterialApp(
+          return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: Strings.appName,
             theme: getIt<ThemeStore>().darkMode ? orangeTheme : purpleTheme,

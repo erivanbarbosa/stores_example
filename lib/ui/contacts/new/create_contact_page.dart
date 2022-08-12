@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_it/get_it.dart';
 import 'package:redesprou_boilerplate_name/di/components/service_locator.dart';
 import 'package:redesprou_boilerplate_name/stores/contact/contact_store.dart';
 import 'package:redesprou_boilerplate_name/ui/contacts/new/partial/contact_birth_date_partial_page.dart';
@@ -25,12 +23,10 @@ class _CreateContactPageState extends State<CreateContactPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   late PageViewController _pageViewController;
-  late ContactStore _contactStore;
 
   @override
   void initState() {
     _pageViewController = PageViewController(context);
-    _contactStore = getIt<ContactStore>();
     super.initState();
   }
 
