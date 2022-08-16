@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:redesprou_boilerplate_name/di/components/service_locator.dart';
+import 'package:redesprou_boilerplate_name/models/contact.dart';
 import 'package:redesprou_boilerplate_name/stores/contact/contact_store.dart';
 import 'package:redesprou_boilerplate_name/widgets/fat_button.dart';
 import 'package:redesprou_boilerplate_name/widgets/inputs/input_inline_label.dart';
@@ -22,6 +23,7 @@ class _ContactNamePartialPageState extends State<ContactNamePartialPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _contactStore = getIt<ContactStore>();
+    _contactStore.contact = new Contact();
   }
 
   @override

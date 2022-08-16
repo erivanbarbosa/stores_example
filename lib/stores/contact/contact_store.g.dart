@@ -24,10 +24,51 @@ mixin _$ContactStore on _ContactStore, Store {
     });
   }
 
+  final _$contactsAtom = Atom(name: '_ContactStore.contacts');
+
+  @override
+  List<Contact> get contacts {
+    _$contactsAtom.reportRead();
+    return super.contacts;
+  }
+
+  @override
+  set contacts(List<Contact> value) {
+    _$contactsAtom.reportWrite(value, super.contacts, () {
+      super.contacts = value;
+    });
+  }
+
+  final _$_ContactStoreActionController =
+      ActionController(name: '_ContactStore');
+
+  @override
+  void saveContact() {
+    final _$actionInfo = _$_ContactStoreActionController.startAction(
+        name: '_ContactStore.saveContact');
+    try {
+      return super.saveContact();
+    } finally {
+      _$_ContactStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void loadContacts() {
+    final _$actionInfo = _$_ContactStoreActionController.startAction(
+        name: '_ContactStore.loadContacts');
+    try {
+      return super.loadContacts();
+    } finally {
+      _$_ContactStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
-contact: ${contact}
+contact: ${contact},
+contacts: ${contacts}
     ''';
   }
 }

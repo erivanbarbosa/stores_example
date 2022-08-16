@@ -8,6 +8,7 @@ import 'package:redesprou_boilerplate_name/ui/contacts/new/partial/contact_email
 import 'package:redesprou_boilerplate_name/ui/contacts/new/partial/contact_name_partial_page.dart';
 import 'package:redesprou_boilerplate_name/ui/contacts/new/partial/contact_phone_partial_page.dart';
 import 'package:redesprou_boilerplate_name/ui/contacts/new/partial/save_contact_partial_page.dart';
+import 'package:redesprou_boilerplate_name/utils/routes/routes.dart';
 import 'package:redesprou_boilerplate_name/widgets/default_app_screen.dart';
 import 'package:redesprou_boilerplate_name/widgets/layout/page_controller.dart';
 
@@ -23,11 +24,13 @@ class _CreateContactPageState extends State<CreateContactPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   late PageViewController _pageViewController;
+  late ContactStore _contactStore;
 
   @override
   void initState() {
     _pageViewController = PageViewController(context);
     super.initState();
+    _contactStore = getIt<ContactStore>();
   }
 
   @override
@@ -72,7 +75,8 @@ class _CreateContactPageState extends State<CreateContactPage> {
                   ),
                   SaveContactPartialPage(
                     onSubmit: () {
-                      _pageViewController.nextPage();
+                      _contactStore.saveContact();
+                      Navigator.pushNamedAndRemoveUntil(context, Routes.dashboard, (route) => false);
                     },
                   )
                 ],

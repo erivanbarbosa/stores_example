@@ -4,7 +4,6 @@ import 'package:redesprou_boilerplate_name/data/sharedpref/shared_preference_hel
 import 'package:redesprou_boilerplate_name/di/module/local_module.dart';
 import 'package:redesprou_boilerplate_name/di/module/network_module.dart';
 import 'package:redesprou_boilerplate_name/stores/error/error_store.dart';
-import 'package:redesprou_boilerplate_name/stores/form/form_store.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:sembast/sembast.dart';
@@ -12,10 +11,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
 
+final contacss = [];
+
 Future<void> setupLocator() async {
   // factories:-----------------------------------------------------------------
   getIt.registerFactory(() => ErrorStore());
-  getIt.registerFactory(() => FormStore());
 
   // async singletons:----------------------------------------------------------
   getIt.registerSingletonAsync<Database>(() => LocalModule.provideDatabase());
